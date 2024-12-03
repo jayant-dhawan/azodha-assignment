@@ -1,50 +1,54 @@
-# React + TypeScript + Vite
+# Azodha Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Assignment for interview process.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Instructions
+``` bash
+# Install packages
+$ npm install
+```
+``` bash
+# Run the app in dev mode
+$ npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Assignment Overview:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Login Page:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- Create a login form with username and password fields (no API calls needed).
+- Use a random pair of credentials (e.g., username: user123, password: password123) for the login validation.
+- Once the user successfully logs in, the app should redirect to the onboarding flow.
+
+### Onboarding Step 1 – Personal Profile:
+
+- Capture name, age, email, and profile picture.
+
+### Onboarding Step 2 – Favorite Songs List:
+
+- Allow users to input a list of their favorite songs, with the ability to add more songs dynamically using Formik.
+
+### Onboarding Step 3 – Payment Information:
+
+- Capture card details (This step should include basic input fields for card number, expiry date, and CVV).
+
+### Onboarding Step 4 – Success:
+
+- Display a success message indicating the completion of the onboarding process.
+
+### Home Page:
+
+- Once onboarding is complete, the user should be directed to a home page with a welcome message.
+
+## Requirements:
+
+- State Management: Use Redux for managing the state of each onboarding step.
+
+- Persistence: Use localStorage to store the state of the user's progress at each step of the onboarding process. This way:
+
+- If the user closes the browser and returns later, the onboarding should resume from the step where they left off.
+
+- If the user has already completed the onboarding, they should be directly redirected to the home page on subsequent visits.
+  Navigation: Users should be able to move forward and backward between onboarding steps, and the data from previous steps should be retained.
+
+- No API calls: The login and data persistence should work entirely on the front-end using random credentials for login, with no backend integration required.
